@@ -18,6 +18,10 @@ spec:
         ports:
         - containerPort: 80
 
+# doing:
+
+# kubectl create -f hello-world-create.yaml
+
 # this file creates the initial deployment with just one pod
 # (imperative way ) lets create objects by specifying the action to take
               # while using a configuration file (like this one)
