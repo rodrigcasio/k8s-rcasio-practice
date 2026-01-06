@@ -1,0 +1,41 @@
+# --- OS / IDE Files ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*~
+
+# --- Kubernetes Specific ---
+# Never commit your kubeconfig
+.kube/
+config
+*.kubeconfig
+
+# Ignore local minikube state or logs
+.minikube/
+*.log
+ip_address.txt
+
+# --- Helm ---
+charts/
+*.tgz
+helm-charts/
+
+# --- Python & Django ---
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+db.sqlite3
+media/
+static/
+
+# --- secrets & credentials (CRITICAL) ---
+# or ".env" to ensure it never gets pushed.
+*secret.yaml
+*secrets.yaml
+.env*
+*.pem
+*.key
