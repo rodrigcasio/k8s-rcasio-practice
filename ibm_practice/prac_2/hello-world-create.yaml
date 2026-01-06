@@ -19,3 +19,5 @@ spec:
         - containerPort: 80
 
 # this file creates the initial deployment with just one pod
+# (imperative way ) lets create objects by specifying the action to take
+              # while using a configuration file (like this one)

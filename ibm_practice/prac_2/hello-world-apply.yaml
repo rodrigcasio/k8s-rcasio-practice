@@ -19,3 +19,7 @@ spec:
         - containerPort: 80
 
 # this file is used to scale the deployment to three pods
+# (declerative way) using this configuration file to:
+              # 1. Create a Deployment (kind: Deployment)
+              # 2. Will place 3 replica Pods for this Deployment (replicas: 3)
+              # 3. The Pods should run the hello-world image
