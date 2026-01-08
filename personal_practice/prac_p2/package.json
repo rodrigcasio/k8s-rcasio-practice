@@ -1,0 +1,16 @@
+{
+  "name": "prac_p2",
+  "version": "1.0.0",
+  "description": "Small app to rollout an existing pod with a new image",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
