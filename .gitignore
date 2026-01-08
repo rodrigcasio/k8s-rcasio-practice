@@ -7,7 +7,6 @@ Thumbs.db
 *~
 
 # --- Kubernetes Specific ---
-# Never commit your kubeconfig
 .kube/
 config
 *.kubeconfig
@@ -39,3 +38,10 @@ static/
 .env*
 *.pem
 *.key
+
+# -- nodejs
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
