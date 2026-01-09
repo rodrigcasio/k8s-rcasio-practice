@@ -1,0 +1,33 @@
+# create a deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rodrig-app-v2
+  labels:
+    app: rodrig-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: rodrig-app
+  template:
+    metadata:
+      labels:
+        app: rodrig-app
+    spec:
+      containers:
+      - name: rodrig-container
+        image: rodrigocasio/my-first-k8s-app:v2
+        ports:
+        - containerPort: 8080
+
+# setting up a service for this deployment within the kubectl:
+  
+# rodrig@rcasio-Archon prac_p2]$ kubectl expose deployment rodrig-app-v2 \
+# > --type=NodePort \
+# > --port=80 \
+# > --target-port=8080 \
+# > --name=rodrig-app-service
+# service/rodrig-app-service exposed
+# rodrig@rcasio-Archon prac_p2]$
+
