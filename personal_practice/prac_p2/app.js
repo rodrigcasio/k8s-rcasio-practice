@@ -18,8 +18,8 @@ app.get('/', (req, res) => {
     }
 
     // replace palceholders with real values:
-    const message = process.env.APP_MESSAGE || "Welcome to Version 2.0";
-    const podName = os.localhost();
+    const message = process.env.APP_MESSAGE || "Welcome to Version 4.0";
+    const podName = os.hostname();
     
     let result = data.replace('{{MESSAGE}}', message)
                      .replace('{{POD_NAME}}', podName);
