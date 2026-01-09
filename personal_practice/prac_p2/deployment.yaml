@@ -1,0 +1,38 @@
+# create a deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rodrig-app-v2
+  labels:
+    app: rodrig-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: rodrig-app
+  template:
+    metadata:
+      labels:
+        app: rodrig-app
+    spec:
+      containers:
+      - name: rodrig-container
+        image: rodrigocasio/my-first-k8s-app:v2
+        ports:
+        - containerPort: 8080
+---
+# create a service
+apiVersion: v1
+kind: Service
+metadata:
+  name: rodrig-app-service
+spec:
+  type: NodePort
+  selector:
+    app: rodrig-app
+  ports:
+     dramas:
+      - protocol: TCP
+        port: 80
+        targetPort: 8080
+
