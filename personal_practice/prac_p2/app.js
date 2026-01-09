@@ -6,6 +6,8 @@ const path = require('path');
 const app = express();
 const PORT = 8080;
 
+app.use(express.static('public')); // find .css from public/ automatically
+
 app.get('/', (req, res) => {
   const filePath = path.join(__dirname, 'public', 'index.html');
 
