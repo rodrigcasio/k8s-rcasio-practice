@@ -6,19 +6,19 @@ const path = require('path');
 const app = express();
 const PORT = 8080;
 
-app.use(express.static('public')); 
+app.use('/static', express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
-
-  const filePath = path.join(__dirname, 'index.html');
+  // Path to your index.html inside the public folder
+  const filePath = path.join(__dirname, 'public', 'index.html');
 
   fs.readFile(filePath, 'utf8', (err, data) => {
     if (err) {
-      console.error(err);
-      return res.status(500).send('Error loading template');
+      console.error("Error reading index.html:", err);
+      return res.status(500).send('Server Error: public/index.html not found.');
     }
 
-    const message = process.env.APP_MESSAGE || "Welcome to Version 6.0";
+    const message = process.env.APP_MESSAGE || "Welcome to Version 7.0";
     const podName = os.hostname();
 
     let result = data.replaceAll('{{MESSAGE}}', message);
@@ -29,5 +29,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`App v6 listening at http://localhost:${PORT}`);
+  console.log(`Pod ${os.hostname()} listening at http://localhost:${PORT}`);
 });
