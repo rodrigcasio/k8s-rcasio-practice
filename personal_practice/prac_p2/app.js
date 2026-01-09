@@ -9,15 +9,14 @@ const PORT = 8080;
 app.use('/static', express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
-  // Path to your index.html inside the public folder
   const filePath = path.join(__dirname, 'public', 'index.html');
 
   fs.readFile(filePath, 'utf8', (err, data) => {
     if (err) {
-      console.error("Error reading index.html:", err);
-      return res.status(500).send('Server Error: public/index.html not found.');
+      return res.status(500).send('Error: public/index.html not found.');
     }
 
+    // logic for ConfigMap (APP_MESSAGE) and Pod Name (os.hostname)
     const message = process.env.APP_MESSAGE || "Welcome to Version 7.0";
     const podName = os.hostname();
 
@@ -29,5 +28,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Pod ${os.hostname()} listening at http://localhost:${PORT}`);
+  console.log(`Server listening at http://localhost:${PORT}`);
 });
