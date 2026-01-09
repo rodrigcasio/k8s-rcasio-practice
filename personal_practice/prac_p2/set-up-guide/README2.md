@@ -114,3 +114,19 @@ Virtual Routes: Using app.use('/static', ...) is safer than app.use(express.stat
 ConfigMaps: They allow you to change the behavior of an app without rebuilding the Docker image.
 
 Replica Sets: Scaling to multiple pods provides high availability and allows you to see Kubernetes load balancing in action.
+
+
+## Deep Inspection (Debugging Commands)
+
+Before cleaning up, use these commands to see exactly how Kubernetes is managing your app:
+
+See the "Brain" of a Pod: kubectl describe pod <pod_name>
+(Look for the "Environment" section to see your ConfigMap message!)
+
+See Raw ConfigMap Data: kubectl get configmap rodrig-config -o yaml
+
+Check Application Logs: kubectl logs <pod_name>
+
+Watch the Load Balancer in Action: kubectl get pods -o wide
+
+Check Service Mapping: kubectl describe service rodrig-app-service
